@@ -16,10 +16,18 @@ Phone.prototype.displayInfoAvailable = function () {
     console.log("We're sorry but this product " + this.brand + " is not available.");
   }
 };
+Phone.prototype.applyDiscount = function (priceOffIn) {
+  if (this.amount > 0) {
+    this.price -= priceOffIn;
+    return this.price;
+  } else {
+    console.log("This product is not available.");
+  }
+};
 
-let iphone6 = new Phone("iPhone 6s", 1400, "white", 2, 233);
-let samsungGa = new Phone("Samsung Galaxy S6", 800, "blue", 2, 0);
-let onPlus = new Phone("OnePlus One", 350, "red", 1, 1298);
+var iphone6 = new Phone("iPhone 6s", 1400, "white", 2, 233);
+var samsungGa = new Phone("Samsung Galaxy S6", 800, "blue", 2, 0);
+var onPlus = new Phone("OnePlus One", 350, "red", 1, 1298);
 
 iphone6.printInfo();
 iphone6.displayInfoAvailable();
@@ -27,3 +35,9 @@ samsungGa.printInfo();
 samsungGa.displayInfoAvailable();
 onPlus.printInfo();
 onPlus.displayInfoAvailable();
+
+iphone6.applyDiscount(400);
+iphone6.printInfo();
+
+samsungGa.applyDiscount(200);
+samsungGa.printInfo();
